@@ -25,7 +25,7 @@ if (!isset($_SESSION['admin'])) {
         <div style="margin-bottom: 25px;">
             <h3>Participant Search</h3>
             <form action="search_result.php" method="POST">
-                <input type="text" name="firstname_surname" placeholder="Firstname or Surname" required>
+                <input type="text" name="firstname_surname" placeholder="Firstname, Surname, or Email" required>
                 <input type="hidden" name="participant" value="1">
                 <button type="submit">Search Participants</button>
             </form>

@@ -9,33 +9,90 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container wide-container">
         <header>
-            <h1>UK E-Sports League</h1>
-            <p>Official Portal for Participants & Teams</p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 30px;">
+                <div
+                    style="padding: 10px; background: rgba(56, 189, 248, 0.1); border-radius: 50%; border: 1px solid var(--glass-border);">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-primary);">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                        <polyline points="2 17 12 22 22 17" />
+                        <polyline points="2 12 12 17 22 12" />
+                    </svg>
+                </div>
+                <h1 style="margin-bottom: 0;">UK E-Sports League</h1>
+            </div>
         </header>
 
-        <nav>
-            <ul>
-                <li>
-                    <a href="register_form.html" class="nav-link">
-                        <strong>Register Your Interest</strong><br>
-                        <small>Receive Free Merchandise</small>
+        <!-- Advisory Notice -->
+        <div
+            style="background: rgba(56, 189, 248, 0.05); border: 1px solid var(--accent-primary); padding: 20px; border-radius: 16px; margin-bottom: 40px; text-align: left;">
+            <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 10px;">
+                <span
+                    style="background: var(--accent-primary); color: var(--bg-main); padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Official
+                    Advisory</span>
+                <span style="color: var(--text-main); font-weight: 600;">Welcome to the 2026 Season</span>
+            </div>
+            <p style="text-align: left; margin-bottom: 0; font-size: 0.95rem;">
+                The UK E-Sports League is currently opening registration for new participants. Join thousands of gamers
+                competing across the country for the ultimate title. Registration is limited—secure your spot today.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+            <!-- Intro Text -->
+            <div style="text-align: left;">
+                <h2 style="text-align: left; font-size: 1.5rem;">Forge Your Legacy</h2>
+                <p style="text-align: left; line-height: 1.8;">
+                    Welcome to the central portal of the UK E-Sports League. We provide a state-of-the-art platform for
+                    tracking performance, managing teams, and coordinating national tournaments. Our mission is to
+                    elevate the British gaming scene to the global stage.
+                </p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;">
+                    <a href="register_form.html" class="nav-link"
+                        style="background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); border: none; font-weight: 700;">
+                        Join the League
                     </a>
-                </li>
-                <li>
                     <a href="admin_login.html" class="nav-link">
-                        <strong>Admin Login</strong><br>
-                        <small>League Management Portal</small>
+                        Admin Portal
                     </a>
-                </li>
-            </ul>
-        </nav>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                <div class="result-item" style="margin-bottom: 0; border-left-color: var(--accent-primary);">
+                    <h3 style="text-align: left; font-size: 1rem; margin-bottom: 5px;">🔥 Real-time Stats</h3>
+                    <p style="text-align: left; margin-bottom: 0; font-size: 0.85rem;">Track your kills, deaths, and K/D
+                        ratio throughout the season.</p>
+                </div>
+                <div class="result-item" style="margin-bottom: 0; border-left-color: var(--accent-secondary);">
+                    <h3 style="text-align: left; font-size: 1rem; margin-bottom: 5px;">🏆 Team Dynamics</h3>
+                    <p style="text-align: left; margin-bottom: 0; font-size: 0.85rem;">Compete as a team and climb the
+                        national rankings together.</p>
+                </div>
+                <div class="result-item" style="margin-bottom: 0; border-left-color: var(--accent-success);">
+                    <h3 style="text-align: left; font-size: 1rem; margin-bottom: 5px;">🎁 Exclusive Merch</h3>
+                    <p style="text-align: left; margin-bottom: 0; font-size: 0.85rem;">Registered participants are
+                        eligible for free season 2026 merchandise.</p>
+                </div>
+            </div>
+        </div>
 
         <footer>
-            &copy; 2026 UK E-Sports League. All rights reserved.
+            &copy; 2026 UK E-Sports League. Authorized access only.
         </footer>
     </div>
+
+    <!-- Success Message Handling -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'registered') {
+            alert('Congratulations! You have been successfully registered for the league.');
+        }
+    </script>
 </body>
 
 </html>

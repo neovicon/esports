@@ -6,7 +6,9 @@ if (!isset($_SESSION['admin'])) {
 }
 include "dbconnect.php";
 
-$r = mysqli_query($conn, "SELECT id, firstname, surname FROM participant");
+$r = mysqli_query($conn, "SELECT p.id, p.firstname, p.surname, p.email, p.team_id, t.name as team_name 
+                          FROM participant p 
+                          LEFT JOIN team t ON p.team_id = t.id");
 if (!$r) {
     die("Error fetching participants: " . mysqli_error($conn));
 }
@@ -34,14 +36,26 @@ if (!$r) {
 
         <div class="participant-list">
             <?php while ($row = mysqli_fetch_assoc($r)): ?>
-                <div class="result-item" style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
+                <div class="result-item"
+                    style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
+                    <div style="flex: 1;">
                         <strong
-                            style="font-size: 1.1rem;"><?= htmlspecialchars($row['firstname'] . " " . $row['surname']) ?></strong>
+                            style="font-size: 1.2rem; color: var(--accent-primary); display: block; margin-bottom: 5px;">
+                            <?= htmlspecialchars($row['firstname'] . " " . $row['surname']) ?>
+                        </strong>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">
+                            <span style="display: block; margin-bottom: 4px;">📧
+                                <?= htmlspecialchars($row['email']) ?></span>
+                            <span>🎮 Team: <?= htmlspecialchars($row['team_name'] ?? 'Free Agent') ?>
+                                <small>(ID: <?= htmlspecialchars($row['team_id'] ?? 'N/A') ?>)</small>
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <a href='edit.php?id=<?= $row['id'] ?>' style="margin-right: 15px;">Edit</a>
-                        <a href='delete.php?id=<?= $row['id'] ?>' style="color: var(--accent-error);">Delete</a>
+                    <div style="display: flex; gap: 15px; padding-top: 5px;">
+                        <a href='edit.php?id=<?= $row['id'] ?>' class="nav-link"
+                            style="padding: 8px 15px; margin-bottom: 0;">Edit</a>
+                        <a href='delete.php?id=<?= $row['id'] ?>' class="nav-link"
+                            style="padding: 8px 15px; margin-bottom: 0; border-color: var(--accent-error); color: var(--accent-error);">Delete</a>
                     </div>
                 </div>
             <?php endwhile; ?>

@@ -1,20 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
 
 :root {
-    --bg-main: #0b0e14;
-    --bg-card: rgba(255, 255, 255, 0.05);
-    --bg-input: rgba(15, 23, 42, 0.6);
-    
-    --accent-primary: #00f2ff;
-    --accent-secondary: #7000ff;
-    --accent-error: #ff4d4d;
-    --accent-success: #00ff88;
-    
+    --bg-main: #020617;
+    --bg-card: rgba(15, 23, 42, 0.7);
+    --bg-input: rgba(30, 41, 59, 0.5);
+
+    --accent-primary: #38bdf8;
+    /* Sky Blue */
+    --accent-secondary: #1d4ed8;
+    /* Deep Blue */
+    --accent-error: #f43f5e;
+    --accent-success: #10b981;
+
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
-    
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    --glass-border: rgba(56, 189, 248, 0.2);
+    --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -26,9 +28,12 @@
 
 body {
     background-color: var(--bg-main);
-    background-image: 
-        radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(112, 0, 255, 0.05) 0%, transparent 40%);
+    background-image:
+        linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.85)),
+        url('gaming_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--text-main);
     min-height: 100vh;
     display: flex;
@@ -58,11 +63,14 @@ body {
     max-width: 1000px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     text-align: center;
     margin-bottom: 24px;
     background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
     text-transform: uppercase;

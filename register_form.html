@@ -18,7 +18,15 @@
         <form action="register.php" method="POST">
             <input type="text" name="name" placeholder="Full Name" required autocomplete="name">
             <input type="email" name="email" placeholder="Email Address" required autocomplete="email">
-            <input type="text" name="address" placeholder="Mailing Address" required autocomplete="street-address">
+            <div
+                style="margin-bottom: 20px; text-align: left; background: var(--bg-input); padding: 15px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <label
+                    style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.9rem; color: var(--text-muted);">
+                    <input type="checkbox" name="terms" value="1" required style="width: auto; margin-top: 4px;">
+                    <span>I agree to the <a href="#" style="color: var(--accent-primary);">Terms & Conditions</a> for
+                        receiving official league merchandise.</span>
+                </label>
+            </div>
             <button type="submit">Complete Registration</button>
         </form>
 
